@@ -43,7 +43,7 @@ function showArrowsTemporarily() {
   arrowTimeout = setTimeout(() => {
     prevBtn.style.opacity = '0';
     nextBtn.style.opacity = '0';
-  }, 4000); // 4초 후 숨김
+  }, 2500); // 2.5초 후 숨김
 }
 
     function toggleMenu() {
