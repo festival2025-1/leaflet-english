@@ -88,8 +88,8 @@
 
 .language-switcher {
   position: absolute;
-  top: 14px;
-  right: 10px; /* 👉 더 오른쪽 구석으로! */
+  top: 15px;
+  right: 12px; /* 👉 더 오른쪽 구석으로! */
   z-index: 30;
   background: rgba(0,0,0,0.6);
   padding: 7px 13px; /* 👉 크기 약간 키움 */
