@@ -132,3 +132,43 @@
         padding: 8px;
       }
     }
+
+
+#popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.popup-content {
+  position: relative;
+  background: #000;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.popup-content img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+#popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
