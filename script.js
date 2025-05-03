@@ -133,5 +133,17 @@ document.addEventListener('click', function(event) {
   }
 });
 
-updateSlide();
-showArrowsTemporarily();
+// DOM이 준비되면 실행되는 모든 코드
+document.addEventListener('DOMContentLoaded', function () {
+  updateSlide();          // 초기 슬라이드 업데이트
+  showArrowsTemporarily(); // 첫 진입 시 화살표 표시
+
+  // 팝업 닫기 기능
+  const popup = document.getElementById('popup-overlay');
+  const closeBtn = document.getElementById('popup-close');
+  if (popup && closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  }
+});
