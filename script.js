@@ -104,15 +104,15 @@ function showArrowsTemporarily() {
     instaLink.style.alignItems = "center";
     instaLink.style.gap = "6px";
     instaLink.style.margin = "10px";
-    instaLink.style.fontSize = "0.85rem";
+    instaLink.style.fontSize = "1rem";
     instaLink.style.color = "#fff";
     instaLink.style.textDecoration = "none";
 
     const instaIcon = document.createElement("img");
     instaIcon.src = "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png";
     instaIcon.alt = "Instagram Icon";
-    instaIcon.style.width = "16px";
-    instaIcon.style.height = "16px";
+    instaIcon.style.width = "18px";
+    instaIcon.style.height = "18px";
 
     const instaText = document.createElement("span");
     instaText.textContent = "Official Instagram";
