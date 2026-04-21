@@ -98,7 +98,7 @@ function showArrowsTemporarily() {
     // 인스타그램 버튼 추가
     const menuList = document.getElementById("menuList");
     const instaLink = document.createElement("a");
-    instaLink.href = "https://www.instagram.com/scfest.official/";
+    instaLink.href = "https://www.instagram.com/ssaf.official/";
     instaLink.target = "_blank";
     instaLink.style.display = "flex";
     instaLink.style.alignItems = "center";
