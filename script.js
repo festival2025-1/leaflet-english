@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* =========================
-   공지 팝업 (여러 장 순차 표시)
+   공지 팝업 (여러 장 순차 표시, 접속할 때마다 표시)
    ========================= */
 
 const popupImages = [
@@ -156,9 +156,6 @@ const popupImages = [
   '/images/notice4.jpg',
   '/images/notice5.jpg'
 ];
-
-const popupVersion = '1';
-const popupStorageKey = 'noticePopupClosed_' + popupVersion;
 
 let validPopupImages = [];
 let currentPopupIndex = 0;
@@ -173,7 +170,6 @@ function closePopup() {
     popupImg.src = validPopupImages[currentPopupIndex];
   } else {
     popup.style.display = 'none';
-    localStorage.setItem(popupStorageKey, 'true');
   }
 }
 
@@ -182,15 +178,16 @@ window.addEventListener('load', function () {
   const popupImg = document.getElementById('noticeImage');
 
   if (!popup || !popupImg) return;
-  if (localStorage.getItem(popupStorageKey)) return;
 
   let checkedCount = 0;
+  validPopupImages = [];
+  currentPopupIndex = 0;
 
   popupImages.forEach((src) => {
     const img = new Image();
 
     img.onload = function () {
-      validPopupImages.push(src + '?v=' + popupVersion);
+      validPopupImages.push(src + '?v=' + Date.now());
       checkedCount++;
       showPopupIfReady();
     };
@@ -200,14 +197,13 @@ window.addEventListener('load', function () {
       showPopupIfReady();
     };
 
-    img.src = src + '?v=' + popupVersion;
+    img.src = src;
   });
 
   function showPopupIfReady() {
     if (checkedCount !== popupImages.length) return;
 
     if (validPopupImages.length > 0) {
-      currentPopupIndex = 0;
       popupImg.src = validPopupImages[currentPopupIndex];
       popup.style.display = 'flex';
     }
