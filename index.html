@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0" name="viewport"/>
-<title>Seoul Circus Festival 2025</title>
+<title>Seoul Circus Festival 2026</title>
 <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -45,9 +45,47 @@
 </div>
 <div class="slide-indicator" id="slideIndicator">1 / 28</div>
 </div>
+
 <button class="nav-btn prev-btn" onclick="changeSlide(-1)">◀</button>
 <button class="nav-btn next-btn" onclick="changeSlide(1)">▶</button>
-<script src="script.js"></script>
+
+<!-- 공지 팝업 -->
+<div id="noticePopup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()" aria-label="공지 닫기">×</button>
+    <img id="noticeImage" src="" alt="현장 공지" class="popup-img">
+  </div>
 </div>
+
+<script src="script.js"></script>
+
+<script>
+  const popupImagePath = "/images/notice.jpg";
+  const popupVersion = "1";
+  const popupStorageKey = "noticePopupClosed_" + popupVersion;
+
+  function closePopup() {
+    localStorage.setItem(popupStorageKey, "true");
+    document.getElementById("noticePopup").style.display = "none";
+  }
+
+  window.addEventListener("load", function () {
+    const popup = document.getElementById("noticePopup");
+    const popupImg = document.getElementById("noticeImage");
+
+    if (localStorage.getItem(popupStorageKey)) return;
+
+    const testImg = new Image();
+    testImg.onload = function () {
+      popupImg.src = popupImagePath + "?v=" + popupVersion;
+      popup.style.display = "flex";
+    };
+    testImg.onerror = function () {
+      popup.style.display = "none";
+    };
+    testImg.src = popupImagePath + "?v=" + popupVersion;
+  });
+</script>
+
 </body>
 </html>
